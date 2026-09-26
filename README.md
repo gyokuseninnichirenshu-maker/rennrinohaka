@@ -15,8 +15,8 @@ images/           写真・寺紋・地図
 
 | 変えたいもの | 場所 |
 |---|---|
-| メインカラー（朱色） | `css/style.css` 冒頭の `--accent` |
-| フォント | `css/style.css` 冒頭の `--font-serif`（見出し：しっぽり明朝 B1）と `--font-sans`（本文：Zen 角ゴシック New） |
+| 色（チラシに合わせたオレンジ・緑・紺など） | `css/style.css` 冒頭の `:root` |
+| フォント | `css/style.css` 冒頭の `--font-display`・`--font-serif`（見出し：Zen Old Mincho）、`--font-sans`（本文：Zen 角ゴシック New） |
 | お問い合わせフォームのリンク | `index.html` 内の `docs.google.com/forms/...`（6か所。すべて同じURLにそろえる） |
 | よくある質問 | `index.html` の `#faq` セクション |
 | 電話番号 | `index.html` 内の `tel:0336410573` と表示中の番号 |

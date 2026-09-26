@@ -2,22 +2,33 @@
    連理の墓 LP｜日蓮宗 長晶山 玉泉院
    ========================================================== */
 
+/* 色・書体はチラシ（連理の墓／玉泉院）に合わせている */
 :root {
-  --accent: #8E3524;        /* 朱色（メインカラー） */
-  --accent-dark: #6E2819;
-  --accent-soft: #F3E6DF;   /* 朱色のうすい地 */
+  --accent: #C4521C;        /* ボタン・リンクのオレンジ（白文字が読める濃さ） */
+  --accent-dark: #A2421A;
+  --accent-soft: #FCE9DC;   /* オレンジのうすい地 */
+  --orange: #EE8541;        /* 「連理の墓」の題字のオレンジ */
+  --tan: #8E6A3E;           /* 「期限付きのお墓」「二霊墓」の茶（小さい文字でも読める濃さ） */
+  --title: #7A2B1D;         /* 「創建370有余年」の赤茶（見出し） */
+  --green: #2B8448;         /* 料金ラベルの緑 */
+  --navy: #1E3553;          /* 写真ラベルの紺 */
+  --mint: #CFEFD8;          /* 紺ラベルの文字色 */
+  --lavender: #C58BD2;      /* 題字下の線・お問い合わせ先ラベル */
+  --red: #C8322A;           /* 「駐車場5台完備」の赤 */
   --ink: #231F1A;           /* 本文の文字色 */
   --muted: #5E574D;         /* 補足テキスト */
-  --line: #DDD4C4;          /* 罫線 */
-  --bg: #F5F1E8;            /* 地色（生成り） */
-  --bg-alt: #FBF8F2;        /* 交互セクションの地色 */
-  --bg-stone: #ECE7DD;      /* 石色の地 */
-  --dark: #2A2620;          /* お問い合わせ帯 */
-  --darker: #231F1A;        /* フッター */
+  --line: #EADCD2;          /* 罫線 */
+  --bg: #FFFCF8;            /* 地色（白に近い生成り） */
+  --bg-alt: #FCF3F1;        /* 交互セクションの地色（うすいピンク） */
+  --bg-stone: #F5EAD8;      /* チラシの注意書きの枠のベージュ */
+  --wash: rgba(236, 170, 180, .22);   /* 背景の淡いピンクのにじみ */
+  --dark: #2A2620;
+  --darker: #2A2620;        /* フッター */
   --on-dark: #F5F1E8;
   --on-dark-muted: #D8D0C2;
 
-  --font-serif: "Shippori Mincho B1", "Yu Mincho", "YuMincho", "Hiragino Mincho ProN", serif;
+  --font-display: "Zen Old Mincho", "Yu Mincho", "YuMincho", "Hiragino Mincho ProN", serif;   /* 題字・大見出し */
+  --font-serif: "Zen Old Mincho", "Yu Mincho", "YuMincho", "Hiragino Mincho ProN", serif;
   --font-sans: "Zen Kaku Gothic New", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
 
   --container: 1200px;
@@ -38,6 +49,8 @@ body {
   color: var(--ink);
   background: var(--bg);
   -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
   word-break: auto-phrase;   /* 対応ブラウザでは文節の切れ目で改行する */
 }
 p, li, dd, td, summary { text-wrap: pretty; }   /* 最後の行に1文字だけ残るのを防ぐ */
@@ -273,6 +286,78 @@ svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width:
 .site-footer { background: var(--darker); color: var(--on-dark-muted); padding: 48px 0; font-size: 14px; }
 .footer-inner { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap; }
 .footer-name { font-family: var(--font-serif); font-size: 20px; color: var(--on-dark); letter-spacing: .12em; margin-bottom: 8px; }
+
+/* ==========================================================
+   チラシに合わせた色・書体・装飾
+   ========================================================== */
+.brand-name { font-family: var(--font-display); }
+.hero-title, .section-title, .contact h2, .temple-name, .brand-name, .step-when { font-weight: 700; }
+.hero-name span, .worry-answer strong, .feature-num, .pair-title, .price-num { font-weight: 900; }
+/* 見出し・ラベルは和文の字間を詰めて整える（本文は読みやすさ優先でそのまま） */
+h1, h2, h3, .hero-name, .hero-eyebrow, .eyebrow, .brand-name, .fact-value, .price-label,
+.pair-title, .step-when, .choice-title, .worry-answer, .verse-body, .btn, .gallery figcaption {
+  font-feature-settings: "palt";
+}
+.hero-title { letter-spacing: .08em; line-height: 1.55; }
+.section-title { letter-spacing: .1em; }
+.hero-name span { letter-spacing: .06em; }
+
+/* 淡いピンクのにじみ */
+.hero, .contact {
+  background:
+    radial-gradient(ellipse 38% 45% at 88% 18%, var(--wash), transparent 70%),
+    radial-gradient(ellipse 30% 40% at 4% 92%, var(--wash), transparent 70%),
+    var(--bg);
+}
+
+.hero-eyebrow { color: var(--tan); background: #F7EEE3; font-family: var(--font-serif); font-weight: 700; letter-spacing: .08em; }
+.hero-title { font-family: var(--font-display); }
+.hero-name { align-self: flex-start; padding-bottom: 10px; border-bottom: 3px solid var(--lavender); }
+.hero-name span { font-family: var(--font-display); color: var(--orange); font-size: 1.9em; line-height: 1.2; }
+.fact-label { align-self: flex-start; background: var(--green); color: #fff; font-weight: 700; padding: 0 10px; border-radius: 4px; margin-bottom: 4px; }
+
+/* 見出し：赤茶の太い題字 ＋ 紺のラベル */
+.section-title, .contact h2 { font-family: var(--font-display); color: var(--title); }
+.eyebrow { display: inline-block; align-self: flex-start; background: var(--navy); color: var(--mint); font-size: 14px; letter-spacing: .15em; padding: 4px 18px; border-radius: 999px; margin-bottom: 14px; }
+.eyebrow.center { display: table; margin-left: auto; margin-right: auto; }
+
+/* お悩み：チラシの「◎」 */
+.worry-list li::before { content: "◎"; border: 0; width: auto; height: auto; margin-top: 0; top: 50%; transform: translateY(-50%); color: var(--accent); font-size: 18px; line-height: 1; }
+.worry-list li::after { display: none; }
+.worry-answer strong { font-family: var(--font-display); color: var(--orange); }
+.worry-note { background: var(--bg-stone); border-color: var(--bg-stone); }
+
+.verse { border-left-color: var(--lavender); }
+.verse-label { color: var(--tan); }
+
+.feature-num, .pair-title { font-family: var(--font-display); color: var(--orange); }
+.feature h3 { color: var(--title); }
+
+.step::after { background: var(--orange); }
+.step-when { font-family: var(--font-display); }
+.choice-title { color: var(--green); }
+.flow-note { background: var(--bg-stone); }
+
+/* 料金：緑のラベル ＋ 黒く太い数字 */
+.price-label { display: inline-block; background: var(--green); color: #fff; padding: 2px 16px; border-radius: 6px; letter-spacing: .1em; margin-bottom: 6px; }
+.price-num, .price-num-sm { font-family: var(--font-sans); font-weight: 900; color: var(--ink); }
+.price-free li { background: var(--bg-stone); }
+
+.temple-name { font-family: var(--font-display); color: var(--title); }
+
+/* 写真ラベル：紺の角丸 */
+.gallery figcaption { align-self: flex-start; background: var(--navy); color: var(--mint); font-size: 14px; padding: 2px 16px; border-radius: 999px; }
+
+.parking { color: var(--red); font-size: 1.1em; }
+
+.faq summary::before { color: var(--orange); }
+
+/* 見学・相談：チラシの「お問い合わせ先」のような明るい地 */
+.contact { color: var(--ink); border-top: 1px solid var(--line); }
+.contact h2::after { content: ""; display: block; width: 72px; height: 3px; margin: 16px auto 0; background: var(--lavender); }
+.contact-lead, .contact-sub, .contact-tel { color: var(--muted); }
+.contact-tel a { color: var(--ink); }
+.contact-tel svg { color: var(--accent); }
 
 /* スマートフォン用の固定ボタン（PCでは非表示） */
 .sp-bar { display: none; }
